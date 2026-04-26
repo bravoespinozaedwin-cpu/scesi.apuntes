@@ -117,77 +117,95 @@ crear perfil correcto por 5 puntos
 ## Apuntes de la clase 4
 
 ### Git remote
-
+dice la dirrecion a la que nuestra nuve debe enviar o traer informacion
 * Permite conectar tu repositorio local con uno remoto (como GitHub, GitLab, etc.).
 * Comando principal para ver remotos:
+git remote -v
+ (Nos permite ver las URLs exactas dondeapunta nuestro repositorio)
 
-  ```bash
-  git remote -v
-  ```
-* Agregar un remoto:
+git remote add <apodo> “url” / apodo como originjj 
+(Vincula nuestro repo local
+con uno en la nube.)
 
-  ```bash
-  git remote add origin <url>
-  ```
-* Cambiar la URL de un remoto:
+git remote set-url <apodo> “url” 
+(Cambia la url dondeapunta nuestro repositorio)como de https a ssh
 
-  ```bash
-  git remote set-url origin <nueva-url>
-  ```
+### Multiples SSH
+interconectar ssh a mi github
+cada tunel tiene su cerrojo su propia llave,  entonces si hay multiples ssh , un ssh para cada puerta y cuenta
 
----
+#### configurar multiples ssh
+ir donde esta mi ssh y ahi poner
+Paso 1. Generamos el sshkey en con
+otro nombre:
 
-### SSH (Secure Shell)
 
-* Método seguro para autenticarte sin usar usuario/contraseña.
-* Usa claves SSH (pública y privada).
-* Generar clave:
 
-  ```bash
-  ssh-keygen -t ed25519 -C "tu_email@example.com"
-  ```
-* Se agrega la clave pública al servicio (ej. GitHub).
-* Permite hacer `git push` y `git pull` sin autenticación manual constante.
+ssh-keygen -t ed25519 -C
+"micorreo@gmail.com" -f ~/.ssh/id_miname
 
----
+Paso 2. Creamos un archivo config
+para que no choquen las key
+Cuenta Personal (la de siempre)
+Host github.com
+HostName github.com
+User git
+IdentityFile ~/.ssh/id_ed25519
+Cuenta del otro correo
+Host github-miname
+HostName github.com
+User git
+IdentityFile ~/.ssh/id_miname
 
-### Múltiples remotes
+host: es el apodo o alias  de la conexion depues de git@
+hostName: direccion real donde nos conectamos siempre la misma
+user: nombre del usuarion para git hub siempre es git
+identity file ruta exacta hacia la llave que usara el host
 
-* Un repositorio puede tener varios remotos (ej. `origin`, `upstream`).
-* Ejemplo:
+Paso 3. Para verificar si funciona
+ejecutamos el comando:
 
-  ```bash
-  git remote add upstream <url>
-  ```
-* Útil para trabajar con forks o múltiples servidores.
-* Puedes hacer push o pull a cualquiera:
+ssh -T git@github-miname
+### Configuraciones Locales
+Las configuraciones locales se imponen a las globales, y
+estas solo funcionan para el repositorio en el que se aplican.
+Para hacer configuraciones locales lo que se debe hacer es
+lo mismo que en las globales pero sin el flag --global:
 
-  ```bash
-  git push origin main
-  git pull upstream main
-  ```
+git config user.name "Mi nuevo Name"
+git config user.email "micorreo@gmail.com"
+tienen jerarquia 
+system level
+global level
+local level
+### git checkout
+Es el comando que nos permite desplazar el HEAD
+(nuestro puntero o "lector" actual) hacia un punto
+específico de la historia o a una rama distinta.  ver atras
+¿Para qué sirve?
+Inspeccionar: Ver cómo era el código en un
+commit antiguo.
+Restaurar: Recuperar archivos que borramos o
+cambiamos.
+Experimentar: Probar cambios sin arruinar la
+rama principal.
+Cambiar: Saltarnos de una rama a otra (ej. de
+main a desarrollo)
 
----
 
-### Git checkout
+### commit en atras
+no se crea una paradoja sin embargo nos dira al volver al main que tenemos un commit suelto si queremos podemos crear una rama
+git checkout -b feature luego nombreexperimental
+volvemos al main 
+y para verlo hacemos
+git log --graph --oneline --all
+aqui se vera las demas ramas de la que estamos generemos una bifurcacion
 
-* Se usa para cambiar de rama o restaurar archivos.
-* Cambiar de rama:
-
-  ```bash
-  git checkout nombre-rama
-  ```
-* Crear y cambiar a una nueva rama:
-
-  ```bash
-  git checkout -b nueva-rama
-  ```
-* Restaurar archivo:
-
-  ```bash
-  git checkout -- archivo.txt
-  ```
-
----
-
+### buenas practicas del checkout
+no trabajar mucho en detached head
+Si vas a escribir más de dos líneas, mejor crea una
+rama de una vez.
+antes de ir al pasado hacer commit  antes de viajar guardar la partida
+se usa para aprender de proyectos grande viendo asi su proceso
+no te deja ir sin el punto de guardado
 
