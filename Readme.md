@@ -209,3 +209,23 @@ antes de ir al pasado hacer commit  antes de viajar guardar la partida
 se usa para aprender de proyectos grande viendo asi su proceso
 no te deja ir sin el punto de guardado
 
+## apuntes clase 5
+### ramas 
+se crean bifurcaciones ramas sin afectar el original
+### comandos
+git branch   //lista todas las ramas que tenemos y nos muestra en cual estamos
+git branch nombredelanuevarama // creamos otra rama
+git log --grapf --online -all 
+ver commits 
+para eliminar averiguar en windows
+//head es en donde estas y main es hasta donde subiste al repositorio remoto
+git checkout nos permite movernos
+git switch es para moverse
+git checkout igual pero muchas mas opciones
+git branch -D nombrerama para eliminar
+//averiguar mas comandos
+git status
+### gitflow  es un flujo de trabajo
+un framework
+nos da reglas establecidas y trabajar de forma ordenada
+
