@@ -229,3 +229,16 @@ git status
 un framework
 nos da reglas establecidas y trabajar de forma ordenada
 
+## apuntes clase 6
+### comandos y flujo basico
+
+`git merge` se utiliza para unir dos ramas, combinando sus cambios en una sola. Es comun usar el flag `--no-ff` para evitar una fusion rapida (fast forward) y forzar la creacion de un commit de merge, lo que permite conservar el historial de las ramas incluso si luego se eliminan.
+
+`git fetch` sirve para revisar si existen cambios nuevos en el repositorio remoto, pero sin aplicarlos automaticamente en tu rama local. Es util para ver que ha cambiado antes de decidir integrarlo.
+
+`git pull` descarga y aplica los cambios del repositorio remoto en tu rama actual. Generalmente se usa indicando el origen y la rama:
+`bash
+git pull origin rama
+Si es la primera vez que subes esa rama, se recomienda usar:
+
+git push -u origin ram
