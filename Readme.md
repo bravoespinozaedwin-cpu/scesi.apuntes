@@ -269,3 +269,31 @@ Es control, es orden y a veces es lo unico que evita que el proyecto se venga ab
 
 Porque programar solo es facil.
 en equipo no tanto.
+## apuntes de la clase 7
+ * aclaracion de la clase 6 //dos cambios llegan
+     añadir ramas sin "" , porque no lo reconoce asi
+     al admin tambien le afecta
+### que hacer si un PR previo causo conflictos en mi PR
+nano readme hacemos un cambio algo innecesario
+y me quiero  mover a otra rama
+nos avisa que no guardamos los cambios
+ahi se usa
+git stash .--m "cambio innecesario"   //permite guardar temporalmente  sin hacer commits los cambios
+git checkout develop//
+y nos deja
+para recuperarlo es
+git stash pop
+git status // nos fijamos
+/diferentes cambios diferentes commmit
+git add readme
+git commit -m ",readme,"
+git add index.html
+git commit -m ",index,"
+
+### git dif
+git diff /// las diferencia  a la original verde agregado rojo eliminado
+git diff index.html mas especifico
+si ya se dio git add .
+git diff --stage
+
+
