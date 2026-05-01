@@ -242,3 +242,30 @@ git pull origin rama
 Si es la primera vez que subes esa rama, se recomienda usar:
 
 git push -u origin ram
+## apuntes clases 7
+### pull request
+Un Pull Request (PR) es una solicitud para integrar cambios de una rama a otra dentro de un repositorio en GitHub.
+es decir Ya terminé esto… revísenlo antes de meter la pata en el proyecto principal.
+### como se crea un pr
+1 trabajas en tu trama
+2 subes tus cambios
+3 evitar codigo mal hecho 
+4 obligar que el equipo se entere de lo que  haces
+5 mantener orden en el proyecto
+el pr es el ultimo filtro antes del desastre
+### como proteger el repositorio
+activar proteccion de ramas
+exigir aprobacion antes del merge
+bloquear pushes directo o main o develop
+// nadie toca sin revision //
+### como colaborar sin ser invitado
+1 haces un fork del repositorio
+2 trabajas en tu copia
+3 subes cambios a tu fork
+4 creas un pr al repositorio original
+// no soy del equipo pero esto puede mejorar su codigo
+Un PR no es burocracia.
+Es control, es orden y a veces es lo unico que evita que el proyecto se venga abajo
+
+Porque programar solo es facil.
+en equipo no tanto.
